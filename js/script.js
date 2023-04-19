@@ -31,11 +31,33 @@
 // console.log(arrayElements);
 
 //CONVERTENDO NODE LIST EM ARRAY COM SPREAD
-const arrayElements = [...document.querySelectorAll("li")];
+// const arrayElements = [...document.querySelectorAll("li")];
 
-arrayElements.map((el,key)=>{
+// arrayElements.map((el,key)=>{
 
-    if (el.textContent.indexOf("1") != (-1)) {
-        el.textContent = `[ ${el.textContent} ]`;
-    }
-});
+//     if (el.textContent.indexOf("1") != (-1)) {
+//         el.textContent = `[ ${el.textContent} ]`;
+//     }
+// });
+let tmp = 0;
+
+
+function mudaCor() {
+    let r = Math.ceil(Math.random()*255);
+    let g = Math.ceil(Math.random()*255);
+    let b = Math.ceil(Math.random()*255);
+    
+    const elemento = [...document.getElementsByClassName("conteudo")];
+    elemento.forEach( (el)=>{
+        el.style.backgroundColor = `rgb(${r},${g},${b})`;
+    } )
+
+   tmp = setTimeout(mudaCor, 5000);
+
+}
+
+function pararTimeOut() {
+    clearTimeout(tmp);
+}
+
+mudaCor()
