@@ -52,12 +52,9 @@ function mudaCor() {
         el.style.backgroundColor = `rgb(${r},${g},${b})`;
     } )
 
-   tmp = setTimeout(mudaCor, 5000);
+   tmp = setTimeout(mudaCor, 1000);
 
 }
 
-function pararTimeOut() {
-    clearTimeout(tmp);
-}
 
-mudaCor()
+ 
