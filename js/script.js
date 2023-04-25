@@ -92,3 +92,29 @@ function alteraBanner3() {
 }
 
 alteraBanner1();
+
+const btnOnOff = document.querySelector(".conteudo button");
+
+btnOnOff.addEventListener("click", ()=>{
+    const imgLampada = document.querySelector(".conteudo img");
+    if(btnOnOff.textContent == "LIGAR"){
+        btnOnOff.textContent = "DESLIGAR";
+        imgLampada.src = "./img/pic_bulbon.gif";
+    }else{
+        btnOnOff.textContent = "LIGAR";
+        imgLampada.src = "./img/pic_bulboff.gif";
+    }
+});
+
+// function turnInOff() {
+//     const btnOnOff = document.querySelector(".conteudo button");
+
+//     if(btnOnOff.textContent == "LIGAR"){
+//         btnOnOff.textContent = "DESLIGAR";
+//         imgLampada.src = "./img/pic_bulbon.gif";
+//     }else{
+//         btnOnOff.textContent = "LIGAR";
+//         imgLampada.src = "./img/pic_bulboff.gif";
+//     }
+// }
+
