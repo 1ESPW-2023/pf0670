@@ -18,3 +18,22 @@ inputUser.addEventListener("keyup", ()=>{
         labelUser.setAttribute("style","color:#00ff00;")
     }
 });
+
+//SUBINDO A RÉGUA
+//Agora repita o processo e altere a classe do ícone para outra
+//Fazendo com que o olho se feche ou apareça com uma cancela quando clicado e vice-versa.
+
+const eyePass = document.querySelector(".eye");
+
+eyePass.addEventListener("click", ()=>{
+    const inputPass = document.querySelector("#idPass");
+
+    if(inputPass.getAttribute("type") == "password"){
+        inputPass.setAttribute("type","text");
+        eyePass.setAttribute("class","fa fa-eye eye");
+    }else{
+        inputPass.setAttribute("type","password");
+        eyePass.setAttribute("class","fa fa-eye-slash eye");
+    }
+
+});
