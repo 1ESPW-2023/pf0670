@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VALIDAÇÃO</title>
-     <script src="./js/script.js" defer></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <script src="./js/login.js" defer></script>
+    <title>Entrar</title>
 </head>
-
 <body>
-   
-<div>
-        <form>
-            <h2>ENTRAR</h2>
-            <div>
-                <label for="idUser">Usuario</label>
-                <input type="text" name="txtUser" id="idUser" placeholder="Usuário">
+    <form>
+        <div class="container">
+          <div class="card">
+            <h1>Entrar</h1>
+    
+            <div id="msgStatus"></div>
+    
+            <div class="label-float">
+                <label for="idUser">Usuário</label>
+              <input type="text" id="idUser" placeholder="Usuário"/>
             </div>
-            <div>
+    
+            <div class="label-float">
                 <label for="idPass">Senha</label>
-                <input type="password" name="txtPass" id="idPass" placeholder="Senha">
-                <i class="fa fa-eye eye" aria-hidden="true"></i>
-
+              <input type="password" id="idPass" placeholder="Senha" />
+              <i class="fa fa-eye" aria-hidden="true"></i>
             </div>
-            <div>
-                <button type="button">Entrar</button>
+    
+            <div class="justify-center">
+              <button id="btnSubmit" type="submit">Entrar</button>
             </div>
-        </form>
-    </div>
-   
+    
+            <div class="justify-center">
+              <hr />
+            </div>
+    
+            <p>
+              Não tem uma conta?
+              <a href="./signup.html">
+                Cadastre-se
+              </a>
+            </p>
+          </div>
+        </div>
+      </form>
 </body>
-
 </html>
