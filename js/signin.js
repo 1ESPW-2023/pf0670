@@ -1,21 +1,46 @@
 "use strict";
 
-//CRIANDO UM OBJETO
-// s
 
+
+//CRIANDO OBJETOS
 //CRIAR UMA LISTA DE OBJETOS
-// let listaDeUsuarios = [];
-// listaDeUsuarios.push(usuario1);
-// listaDeUsuarios.push(usuario2);
+let listaDeUsuarios = [
+    {
+        nomeCompleto : "José da Silva",
+        nomeUsuario : "jose",
+        senhaUsuario: "123456"
+    }
+    ,
+    {
+        nomeCompleto : "Paulo da Silva",
+        nomeUsuario : "paulo",
+        senhaUsuario: "123456"
+    }
+    ,
+    {
+        nomeCompleto : "Maria da Silva",
+        nomeUsuario : "maria",
+        senhaUsuario: "123456"
+    }
+    ,
+    {
+        nomeCompleto : "João da Silva",
+        nomeUsuario : "joao",
+        senhaUsuario: "123456"
+    }
+];
 
-// //Adicionando a lista de OBJETOS no localStorage
-// localStorage.setItem("listaUser", JSON.stringify(listaDeUsuarios));
+//Adicionando a lista de OBJETOS no localStorage
+localStorage.setItem("listaUser", JSON.stringify(listaDeUsuarios));
 
 addEventListener("click", (evt)=>{
     if(evt.target.id == "btnSubmit"){
 
-        let usuarioInput = document.querySelector("#usuario").value;
-        let senhaInput = document.querySelector("#senha").value;
+        //Entrada do usuário
+        let usuarioValidado = {
+            usuarioInput : document.querySelector("#usuario").value,
+            senhaInput : document.querySelector("#senha").value
+        }
         const msgError = document.querySelector("#msgError");
 
         try{
@@ -24,16 +49,28 @@ addEventListener("click", (evt)=>{
 
             listaUser.forEach((usuario)=>{
 
-                if(usuarioInput == usuario.nomeUsuario && senhaInput == usuario.senhaUsuario){
+                if(usuarioValidado.usuarioInput == usuario.nomeUsuario && usuarioValidado.senhaInput == usuario.senhaUsuario){
+                    //Adicionando nova propriedade no objeto.
+                    usuarioValidado["nomeCompleto"] = usuario.nomeCompleto;
                     throw "USUÁRIO VALIDADO!";
                 }
             });
+
             throw "SENHA OU NOME DE USUÁRIO INVÁLIDO!";
-        }catch(err){
-            if(err == "USUÁRIO VALIDADO!"){
+        }catch(msg){
+
+            if(msg == "USUÁRIO VALIDADO!"){
                 
+                //Adicionando o objeto usuarioValidado no localStorage
+                localStorage.setItem("usuario-validado", JSON.stringify(usuarioValidado))
+
                 msgError.setAttribute("style","color:#00ff00;display:block;")
                 msgError.innerHTML = "<strong>Usuário validado!</strong>"
+
+                //Criando o sistema de redirect
+                setTimeout(function () {
+                    window.location.href = "../home.html";
+                }, 3000 );
 
             }else{
                 msgError.setAttribute("style","color:#ff0000;display:block;");
